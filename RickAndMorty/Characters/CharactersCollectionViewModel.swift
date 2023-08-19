@@ -12,6 +12,7 @@ protocol CharactersCollectionViewControllerModelProtocol {
     func fetchCharacters(completion: @escaping() -> Void)
     func numberOfRows() -> Int
     func cellViewModel(at indexPath: IndexPath) -> CharactersCollectionViewModelCellProtocol
+    func viewModelForSelectedRow(at indexPath: IndexPath) -> DetailViewModelProtocol
 }
 
 class CharactersCollectionViewControllerModel: CharactersCollectionViewControllerModelProtocol {
@@ -40,6 +41,11 @@ class CharactersCollectionViewControllerModel: CharactersCollectionViewControlle
     func cellViewModel(at indexPath: IndexPath) -> CharactersCollectionViewModelCellProtocol {
         let characters = characters[indexPath.row]
         return CharactersCollectionViewModelCell(characters: characters)
+    }
+    
+    func viewModelForSelectedRow(at indexPath: IndexPath) -> DetailViewModelProtocol {
+        let detail = characters[indexPath.row]
+        return DetailViewModel(characters: detail)
     }
 }
 

@@ -31,6 +31,8 @@ class CharactersCollectionView: UIViewController {
         collectionView.dataSource = self
         setup()
         setupNavigationBar()
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     private func makeLayout() -> UICollectionViewLayout {
@@ -43,7 +45,6 @@ class CharactersCollectionView: UIViewController {
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(202))
-       // let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
         group.interItemSpacing = .fixed(spacing)
         
@@ -106,72 +107,21 @@ extension CharactersCollectionView: UICollectionViewDataSource {
         cell.viewModel = viewModel.cellViewModel(at: indexPath)
         return cell
     }
-    
-    
 }
 
-//class CharactersCollectionView: UICollectionViewController {
-//
-//    private var viewModel: CharactersCollectionViewControllerModelProtocol! {
-//        didSet {
-//            viewModel.fetchCharacters {
-//                DispatchQueue.main.async{
-//                    self.collectionView.reloadData()
-//                }
-//            }
-//        }
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        viewModel = CharactersCollectionViewControllerModel()
-//        navigationItem.title = "Characters"
-//        self.collectionView!.register(CharactersCollectionViewCell.self, forCellWithReuseIdentifier: CharactersCollectionViewCell.cellID)
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
-//    }
-//
-//    // MARK: UICollectionViewDataSource
-//
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return viewModel.numberOfRows()
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharactersCollectionViewCell.cellID, for: indexPath) as! CharactersCollectionViewCell
-//        cell.viewModel = viewModel.cellViewModel(at: indexPath)
-//        return cell
-//    }
-//
-//    // MARK: UICollectionViewDelegate
-//
-//    /*
-//    // Uncomment this method to specify if the specified item should be highlighted during tracking
-//    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    */
-//
-//    /*
-//    // Uncomment this method to specify if the specified item should be selected
-//    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    */
-//
-//    /*
-//    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-//    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-//        return false
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-//
-//    }
-//    */
-//
-//}
+extension CharactersCollectionView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detail = DetailView()
+        let info = viewModel.viewModelForSelectedRow(at: indexPath)
+       // guard detail.imagePerson.image = info.imade else { return }
+        detail.namePerson.text = info.nameLabel
+        DispatchQueue.global().async {
+            guard let imageData = info.image else { return }
+            DispatchQueue.main.async {
+                detail.imagePerson.image = UIImage(data: imageData)
+            }
+        }
+        detail.statusPerson.text = info.statusLabel
+        navigationController?.pushViewController(detail, animated: true)
+    }
+}
