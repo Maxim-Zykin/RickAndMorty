@@ -113,7 +113,7 @@ extension CharactersCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detail = DetailView()
         let info = viewModel.viewModelForSelectedRow(at: indexPath)
-       // guard detail.imagePerson.image = info.imade else { return }
+        
         detail.namePerson.text = info.nameLabel
         DispatchQueue.global().async {
             guard let imageData = info.image else { return }
@@ -122,6 +122,9 @@ extension CharactersCollectionView: UICollectionViewDelegate {
             }
         }
         detail.statusPerson.text = info.statusLabel
+        detail.speciesPerson.text = info.speciesLabel
+        detail.typePerson.text = info.typeLabel
+        detail.genderPerson.text = info.genderLabel
         navigationController?.pushViewController(detail, animated: true)
     }
 }

@@ -11,9 +11,8 @@ protocol DetailViewModelProtocol: AnyObject {
     var image: Data? { get }
     var nameLabel: String { get }
     var statusLabel: String { get }
-   // var infoLabel: String { get }
     var speciesLabel: String { get }
-   // var typeLabel: String { get }
+    var typeLabel: String? { get }
     var genderLabel: String { get }
     var locationLabel: String { get }
     var episodeLabel: [String] { get }
@@ -35,19 +34,19 @@ class DetailViewModel: DetailViewModelProtocol {
     }
     
     var speciesLabel: String {
-        characters.species
+        "Species: \(characters.species)"
     }
     
-//    var typeLabel: String {
-//        characters.
-//    }
+    var typeLabel: String? {
+        "Type: \(characters.type)"
+    }
     
     var genderLabel: String {
-        characters.gender
+        "Genger: \(characters.gender)"
     }
     
     var locationLabel: String {
-        "characters.location"
+        "\(characters.location.name)"
     }
     
     var episodeLabel: [String] {

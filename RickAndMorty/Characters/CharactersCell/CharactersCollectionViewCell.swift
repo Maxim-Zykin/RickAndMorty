@@ -71,6 +71,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(viewC)
         contentView.addSubview(image)
         contentView.addSubview(name)
+        
         viewC.translatesAutoresizingMaskIntoConstraints = false
         name.translatesAutoresizingMaskIntoConstraints = false
 
