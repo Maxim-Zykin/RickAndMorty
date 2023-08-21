@@ -46,7 +46,7 @@ class DetailViewModel: DetailViewModelProtocol {
     }
     
     var locationLabel: String {
-        "\(characters.location.name)"
+        "\(characters.origin.name)"
     }
     
     var episodeLabel: [String] {

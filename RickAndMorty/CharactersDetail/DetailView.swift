@@ -144,8 +144,9 @@ class DetailView: UIViewController {
         NSLayoutConstraint.activate([
 
             imagePerson.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            imagePerson.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 30),
-            imagePerson.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -30),
+            imagePerson.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            imagePerson.widthAnchor.constraint(equalToConstant: 148),
+            imagePerson.heightAnchor.constraint(equalToConstant: 148),
             
             namePerson.topAnchor.constraint(equalTo: imagePerson.bottomAnchor, constant: 20),
             namePerson.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
