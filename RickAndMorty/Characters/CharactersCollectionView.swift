@@ -125,6 +125,8 @@ extension CharactersCollectionView: UICollectionViewDelegate {
         detail.speciesPerson.text = info.speciesLabel
         detail.typePerson.text = info.typeLabel
         detail.genderPerson.text = info.genderLabel
+        detail.originPerson.text = info.locationLabel
+        
         navigationController?.pushViewController(detail, animated: true)
     }
 }
