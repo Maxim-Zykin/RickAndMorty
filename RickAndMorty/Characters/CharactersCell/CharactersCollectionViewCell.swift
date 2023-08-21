@@ -13,7 +13,6 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     var viewC: UIView = {
         let view = UIView()
-        view.frame.size = CGSize(width: 156, height: 202)
         view.layer.cornerRadius = 16
         view.backgroundColor = UIColor(
             red: 38/255,
@@ -59,9 +58,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     }
     
     override func layoutSubviews(){
-        viewC.frame = CGRect(x: 0, y: 0, width: 156, height: 202)
         image.frame = CGRect(x: 12, y: 12, width: 140, height: 140)
-        name.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     }
 
     private func setupUI() {
