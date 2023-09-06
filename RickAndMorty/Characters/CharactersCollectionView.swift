@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CharactersCollectionView: UIViewController {
 
    lazy var collectionView = UICollectionView(
@@ -27,6 +26,7 @@ class CharactersCollectionView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
         viewModel = CharactersCollectionViewControllerModel()
         collectionView.dataSource = self
         setup()

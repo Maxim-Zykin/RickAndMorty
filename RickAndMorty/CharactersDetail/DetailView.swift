@@ -32,60 +32,21 @@ class DetailView: UIViewController {
          return image
     }()
     
-     var namePerson: UILabel = {
-        var label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 25, weight: .bold)
-        label.textAlignment = .center
-        return label
-    }()
+    var namePerson = CustomLabel(text: "", textAlignment: .center, size: 25, color: .white, font: .bold)
     
-      var statusPerson: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor(red: 71/255, green: 198/255, blue: 11/22, alpha: 255/255)
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
+    var statusPerson = CustomLabel(text: "", textAlignment: .center, size: 20, color: UIColor(red: 71/255, green: 198/255, blue: 11/22, alpha: 255/255), font: .regular)
     
     var infoLabel = CustomLabel(text: "Info", size: 22, color: .white, font: .bold)
     
-    var speciesPerson: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor.white
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textAlignment = .left
-        return label
-    }()
+    var speciesPerson = CustomLabel(text: "", size: 20, color: .white, font: .regular)
+
+    var typePerson = CustomLabel(text: "Type: None", size: 20, color: .white, font: .regular)
     
-    var typePerson: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor.white
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textAlignment = .left
-        label.text = "Type: None"
-        return label
-    }()
-    
-    var genderPerson: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor.white
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textAlignment = .left
-        return label
-    }()
-    
+    var genderPerson = CustomLabel(text: "", size: 20, color: .white, font: .regular)
+
     var originLabel = CustomLabel(text: "Orign", size: 22, color: .white, font: .bold)
     
-    var originPerson: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor.white
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textAlignment = .left
-        return label
-    }()
-    
-    var viewModel: DetailViewModelProtocol!
+    var originPerson = CustomLabel(text: "", size: 20, color: .white, font: .regular)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,8 +106,8 @@ class DetailView: UIViewController {
 
             imagePerson.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             imagePerson.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            imagePerson.widthAnchor.constraint(equalToConstant: 148),
-            imagePerson.heightAnchor.constraint(equalToConstant: 148),
+            imagePerson.widthAnchor.constraint(equalToConstant: 170),
+            imagePerson.heightAnchor.constraint(equalToConstant: 170),
             
             namePerson.topAnchor.constraint(equalTo: imagePerson.bottomAnchor, constant: 20),
             namePerson.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
