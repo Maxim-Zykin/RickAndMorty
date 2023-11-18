@@ -50,4 +50,3 @@ class CharactersCollectionViewControllerModel: CharactersCollectionViewControlle
 }
 
 
-//?page=3
