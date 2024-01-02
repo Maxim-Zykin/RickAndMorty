@@ -27,7 +27,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     var name: UILabel! = {
         let label = UILabel()
-        label.textColor = .label
+        //label.textColor = .label
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 17, weight: .semibold)
         label.text = ""
