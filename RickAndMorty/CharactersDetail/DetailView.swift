@@ -34,7 +34,7 @@ class DetailView: UIViewController {
     
     var namePerson = CustomLabel(text: "", textAlignment: .center, size: 25, color: .white, font: .bold)
     
-    var statusPerson = CustomLabel(text: "", textAlignment: .center, size: 20, color: UIColor(red: 71/255, green: 198/255, blue: 11/22, alpha: 255/255), font: .regular)
+    var statusPerson = CustomLabel(text: "", textAlignment: .center, size: 20, font: .regular)
     
     var infoLabel = CustomLabel(text: "Info", size: 22, color: .white, font: .bold)
     
@@ -51,6 +51,17 @@ class DetailView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        colorStatusPerson()
+    }
+    
+    private func colorStatusPerson() {
+        if statusPerson.text == "Alive" {
+            statusPerson.textColor = UIColor(red: 71/255, green: 198/255, blue: 11/22, alpha: 255/255)
+        } else if statusPerson.text == "Dead" {
+            statusPerson.textColor = .red
+        } else {
+            statusPerson.textColor = .darkGray
+        }
     }
     
     private func setupUI() {

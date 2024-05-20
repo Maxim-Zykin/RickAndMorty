@@ -109,7 +109,7 @@ extension CharactersCollectionView: UICollectionViewDataSource {
         return cell
     }
 }
-
+ 
 extension CharactersCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detail = DetailView()
