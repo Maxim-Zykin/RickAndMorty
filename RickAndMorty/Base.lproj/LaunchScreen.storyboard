@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,18 +19,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 11" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-ut-fY6">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="859"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Union" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-lr-oJ8">
-                                <rect key="frame" x="126.66666666666669" y="224" width="140" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4UT-Gi-FUI"/>
-                                    <constraint firstAttribute="width" constant="140" id="qMc-pz-THR"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame-2" translatesAutoresizingMaskIntoConstraints="NO" id="Fv6-LD-HOA">
                                 <rect key="frame" x="126.66666666666669" y="324" width="140" height="228"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="jDM-lJ-xUu"/>
                                     <constraint firstAttribute="height" constant="228" id="p89-el-Fsl"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Union" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-lr-oJ8">
+                                <rect key="frame" x="135" y="240" width="140" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4UT-Gi-FUI"/>
+                                    <constraint firstAttribute="width" constant="140" id="qMc-pz-THR"/>
                                 </constraints>
                             </imageView>
                         </subviews>

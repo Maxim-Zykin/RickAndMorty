@@ -82,7 +82,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         image.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
         image.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
 
-        name.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 18).isActive = true
+        name.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 15).isActive = true
         name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         name.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }

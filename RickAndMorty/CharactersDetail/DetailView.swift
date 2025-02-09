@@ -117,8 +117,8 @@ class DetailView: UIViewController {
 
             imagePerson.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             imagePerson.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            imagePerson.widthAnchor.constraint(equalToConstant: 170),
-            imagePerson.heightAnchor.constraint(equalToConstant: 170),
+            imagePerson.widthAnchor.constraint(equalToConstant: 270),
+            imagePerson.heightAnchor.constraint(equalToConstant: 270),
             
             namePerson.topAnchor.constraint(equalTo: imagePerson.bottomAnchor, constant: 20),
             namePerson.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
