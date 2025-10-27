@@ -14,6 +14,8 @@ class CharactersCollectionView: UIViewController {
         collectionViewLayout: makeLayout()
     )
     
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+    
     private var viewModel: CharactersCollectionViewControllerModelProtocol! {
         didSet {
             viewModel.fetchCharacters {
@@ -66,13 +68,24 @@ class CharactersCollectionView: UIViewController {
             blue: 30/255,
             alpha: 255/255
         )
+        
+        // Настройка индикатора загрузки
+        activityIndicator.color = .white
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(collectionView)
+        view.addSubview(activityIndicator)
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
     
@@ -94,6 +107,18 @@ class CharactersCollectionView: UIViewController {
         
         navigationController?.navigationBar.standardAppearance = navBarApperanse
         navigationController?.navigationBar.scrollEdgeAppearance = navBarApperanse
+    }
+    
+    private func loadMoreCharacters() {
+        guard viewModel.hasMoreData && !viewModel.isLoading else { return }
+        
+        activityIndicator.startAnimating()
+        viewModel.loadMoreCharacters { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.collectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -129,5 +154,18 @@ extension CharactersCollectionView: UICollectionViewDelegate {
         detail.originPerson.text = info.locationLabel
         
         navigationController?.pushViewController(detail, animated: true)
+    }
+}
+
+extension CharactersCollectionView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        // Загружаем больше данных когда пользователь прокрутил до 80% от конца
+        if offsetY > contentHeight - height * 1.2 {
+            loadMoreCharacters()
+        }
     }
 }

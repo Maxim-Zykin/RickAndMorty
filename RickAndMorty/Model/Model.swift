@@ -9,6 +9,14 @@ import Foundation
 
 struct RickAndMorty: Codable {
     let results: [Characters]
+    let info: Info
+}
+
+struct Info: Codable {
+    let count: Int
+    let pages: Int
+    let next: String?
+    let prev: String?
 }
 
 struct Characters: Codable {
